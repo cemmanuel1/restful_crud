@@ -1,0 +1,5 @@
+Note.create(title: "Fun Weekend", content: "Had an awesome weekend")
+Note.create(title: "Fun Saturday", content: "Had an awesome Saturday")
+Note.create(title: "Fun June", content: "Had an awesome June")
+Note.create(title: "Fun Morning", content: "Had an awesome morning")
+Note.create(title: "Fun Trip", content: "Had an awesome trip")

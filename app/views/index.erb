@@ -1,35 +1,25 @@
-<div class= "top-nav">
+<div class= "screen">
 
+
+<h1>Welcome to Notebook!</h1>
+
+<div class="welcome">
+
+<a href="/create">Create a New Post</a> 
+<br>
+
+<h2>All Notes</h2>
+
+<% @notes.each do |note| %>
+
+Title: <%= note.title %> <br>
+Content: <%= note.content %>
+<br>
+<a href="/update/<%= note.id %>">Edit</a>
+<a href="/delete/<%= note.id %>">Delete</a>
+<br>
+<br>
+<% end %>
 
 </div>
-
-<h1>Welcome to Postits!</h1>
-
-<div class="login">
-
-
-  <p>Already have an account?</p>
-
-  <% if @message %>
-  <p style="color:red"><%= @message %></p>
-  <% end %>
-
-  <form id="login_form" action="/user/login" method="post">
-    <input type="text" name="email" placeholder="Enter Email"><br><br>
-    <input type="password" name="password" placeholder="Enter Password ">
-    
-    <br>
-    <br>
-    New? 
-    <br>
-    <a href="/user/new">Create an account</a>
-     <br>
-    <br>
-
-
-    <input id="button" type="submit" value="Sign in!">
-    <br>
-    <br>
-  </form>
-
 </div>

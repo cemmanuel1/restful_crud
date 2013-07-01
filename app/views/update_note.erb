@@ -1,0 +1,17 @@
+<div class= "screen">
+
+<h2>Update Your Note Below</h2>
+
+	<form id='update' action='/update' method='post'>
+		Title: <input type='text' name='title' value='<%=@note.title%>'><br><br>
+		Content: <textarea rows="10" type='text' name='content' value='<%=@note.content%>' ></textarea> <br><br>
+		<input type='hidden' name='id' value='<%=@note.id%>'>
+		<input type='submit' value='Save changes'>
+	</form>
+	<br>
+	<br>
+	<form id='delete' action='/delete' method='post'>
+		<input type='hidden' name='id' value='<%=@note.id%>'>
+		<input type='submit' value='Delete Note'>
+	</form>
+</div>

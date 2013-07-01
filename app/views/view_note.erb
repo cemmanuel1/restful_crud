@@ -1,0 +1,14 @@
+<div class= "screen">
+
+	Title: <%= @note.title %>
+	Content: <%= @note.content %>
+
+	<form action='/update/<%= @note.id %>' method='get'>
+		<input type='submit' value='Update Note'>
+	</form>
+
+	<form id='delete' action='/delete' method='post'>
+		<input type='hidden' name='id' value='<%=@note.id%>'>
+		<input type='submit' value='Delete Note'>
+	</form>
+</div>

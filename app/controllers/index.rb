@@ -1,24 +1,35 @@
 get '/' do
-  # if logged_in?
-  #   redirect "/user/posts"
-  # else
+@notes = Note.all
     erb :index
-  # end
 end
 
-get "/user/new" do
-  @user = User.new
-  erb :user_form
+get '/create' do 
+  erb :create_note
 end
 
-post "/user/create" do
-  @user = User.new(params[:user])
-
-  if @user.valid?
-    @user.save
-    session[:user_id] = @user.id
-    redirect "/user/dashboard"
-  else
-    erb :user_form
-  end
+post '/create' do 
+  Note.create(params)
+  redirect '/'
 end
+
+
+get '/update/:id' do 
+  @note = Note.find(params[:id])
+  erb :update_note
+end
+
+post '/update/:id' do 
+  note = Note.find(params[:id])
+  note.update_attributes(params)
+end
+
+
+get '/note/:id' do 
+  @note = Note.find(params[:id])
+  erb :view_note
+end
+
+get '/delete/:id' do 
+  Note.delete(params[:id])
+  redirect '/'
+end 
