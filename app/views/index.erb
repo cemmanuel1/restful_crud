@@ -1,25 +1,27 @@
+<div class="container">
+
 <div class= "screen">
+  <h1>Welcome to ChantalBook!</h1>
 
+  <div class="welcome">
+ 
+    <a id="create" href="/create">Create a New Post</a> 
+  
+    <br>
+    <h2>All Notes</h2>
 
-<h1>Welcome to Notebook!</h1>
+    <% @notes.each do |note| %>
 
-<div class="welcome">
+    <div class="title"> <%= note.title %> 
+    </div>
+    <div class="content"> <%= note.content %>
+    </div>
+    <a href="/update/<%= note.id %>">Update</a>
+    <!-- <a href="/delete">Delete</a> -->
+    <br>
+    <br>
+    <% end %>
 
-<a href="/create">Create a New Post</a> 
-<br>
-
-<h2>All Notes</h2>
-
-<% @notes.each do |note| %>
-
-Title: <%= note.title %> <br>
-Content: <%= note.content %>
-<br>
-<a href="/update/<%= note.id %>">Edit</a>
-<a href="/delete/<%= note.id %>">Delete</a>
-<br>
-<br>
-<% end %>
-
+  </div>
 </div>
 </div>

@@ -19,8 +19,9 @@ get '/update/:id' do
 end
 
 post '/update/:id' do 
-  note = Note.find(params[:id])
-  note.update_attributes(params)
+  @note = Note.find(params[:id])
+  @note.update_attributes(params[:note])
+  redirect '/'
 end
 
 
@@ -29,7 +30,8 @@ get '/note/:id' do
   erb :view_note
 end
 
-get '/delete/:id' do 
-  Note.delete(params[:id])
-  redirect '/'
+delete '/:id' do 
+  @note = Note.find(params[:id])  
+  @note.destroy  
+  redirect '/'  
 end 
